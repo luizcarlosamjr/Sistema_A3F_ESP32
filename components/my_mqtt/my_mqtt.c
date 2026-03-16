@@ -99,7 +99,7 @@ void mqtt_publish(char *topic, char *msg)
     ESP_LOGI(TAG, "Mensagem Enviada! ID = %d", msg_id);
 }
 
-void mqtt_sbscribe(char *topic)
+void mqtt_subscribe(char *topic)
 {
     int msg_id = esp_mqtt_client_subscribe(client, topic, 0);
     ESP_LOGI(TAG, "Subscrito no Tópico %s! ID = %d", topic, msg_id);
