@@ -22,7 +22,7 @@
 
 static const char *TAG = "MQTT";
 
-extern SemaphoreHandle_t mqttconnectedSemaphore;
+extern SemaphoreHandle_t mqttConnectedSemaphore;
 
 
 esp_mqtt_client_handle_t client;
@@ -45,7 +45,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch ((esp_mqtt_event_id_t)event_id)
     {
     case MQTT_EVENT_CONNECTED:
-        xSemaphoreGive(mqttconnectedSemaphore);
+        xSemaphoreGive(mqttConnectedSemaphore);
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
