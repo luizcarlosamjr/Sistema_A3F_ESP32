@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include "nvs_flash.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
@@ -79,7 +80,7 @@ struct acesso
     char att_cred[5];
     int img_biometria;
     int img_facial;
-    char timestamp[30]
+    char timestamp[30];
 };
 
 struct acesso autorizado;
@@ -553,7 +554,7 @@ void taskInputFaceID(void *pvParameters)
                     ssd1306_clear_screen(&dev, false);
                     snprintf(linha1, sizeof(linha1), "FaceID");
                     snprintf(linha2, sizeof(linha2), "Reconhecimento");
-                    snprintf(linha2, sizeof(linha3), "facial OK");
+                    snprintf(linha3, sizeof(linha3), "facial OK");
                     ssd1306_display_text(&dev, 2, linha1, strlen(linha1), false);
                     ssd1306_display_text(&dev, 4, linha2, strlen(linha2), false);
                     ssd1306_display_text(&dev, 5, linha3, strlen(linha3), false);
